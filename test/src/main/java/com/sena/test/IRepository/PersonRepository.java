@@ -16,7 +16,7 @@ public interface PersonRepository extends JpaRepository<Person, Integer>{
 			+ "FROM "
 			+ "person p "
 			+ "WHERE "
-			+ "p.edad like %?1%"
+		    + "p.edad = ?1"
 			)
 	public List<Person>filterByEdad(int edad);
 }
