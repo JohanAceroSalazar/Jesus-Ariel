@@ -35,8 +35,8 @@ public class PersonController {
 
     @GetMapping("filterByAge/{edad}")
     public ResponseEntity<Object> filterByEdad(
-        @PathVariable int id){
-            List<Person> person = service.filterByEdad(id);
+        @PathVariable int edad){
+            List<Person> person = service.filterByEdad(edad);
             return new ResponseEntity<Object>
             (person,HttpStatus.OK);
         }
