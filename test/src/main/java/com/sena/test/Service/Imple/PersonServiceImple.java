@@ -1,8 +1,11 @@
+//Contiene la lógica de negocio
 package com.sena.test.Service.Imple;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.sena.test.Dto.PersonDto;
 import com.sena.test.Entity.Person;
 import com.sena.test.IRepository.PersonRepository;
 import com.sena.test.Service.IPersonService;
@@ -26,6 +29,29 @@ public class PersonServiceImple implements IPersonService {
     @Override
     public List<Person> filterByEdad(int edad){
         return repo.filterByEdad(edad);
+    }
+
+    public Person dtoToEntity(PersonDto personDto){
+        return new Person(
+            personDto.getId(),
+            personDto.getName(),
+            personDto.getEdad()
+        );
+    }
+
+    public Person entityToDto(Person person){
+        return new Person(
+            person.getId(),
+            person.getName(),
+            person.getEdad()
+        );
+    }
+
+    @Override
+    public String save(PersonDto p){
+        Person person = dtoToEntity(p);
+        repo.save(person);
+        return "La persona se guardo exitosamente";
     }
 
     @Override

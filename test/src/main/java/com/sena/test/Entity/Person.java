@@ -1,3 +1,4 @@
+//Representación de la tabla
 package com.sena.test.Entity;
 
 import jakarta.persistence.Column;

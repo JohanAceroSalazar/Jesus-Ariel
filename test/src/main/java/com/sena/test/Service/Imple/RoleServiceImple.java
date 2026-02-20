@@ -3,6 +3,8 @@ package com.sena.test.Service.Imple;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.sena.test.Dto.RoleDto;
 import com.sena.test.Entity.Role;
 import com.sena.test.IRepository.RoleRepository;
 import com.sena.test.Service.IRoleService;
@@ -26,6 +28,27 @@ public class RoleServiceImple implements IRoleService {
     @Override
     public List<Role> findByRole(String role){
         return repo.filterByRole(role);
+    }
+
+    public Role dtoToEntity(RoleDto roleDto){
+        return new Role(
+            roleDto.getId(),
+            roleDto.getRole()
+        );
+    }
+
+    public Role entityToRole(Role role){
+        return new Role(
+            role.getId_role(),
+            role.getRole()
+        );
+    }
+
+    @Override
+    public String save(RoleDto roleDto){
+        Role role = dtoToEntity(roleDto);
+        repo.save(role);
+        return "El rol se guardo exitosamente";
     }
 
     @Override

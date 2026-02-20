@@ -1,3 +1,4 @@
+//Acceso a base de datos
 package com.sena.test.IRepository;
 
 import java.util.List;
