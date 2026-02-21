@@ -26,6 +26,19 @@ public class RoleServiceImple implements IRoleService {
     }
 
     @Override
+    public String update(int id, RoleDto roleDto){
+        Role role = repo.findById(id).orElse(null);
+
+        if(role == null){
+            return "Este rol no existe";
+        }
+
+        role.setRole(roleDto.getRole());
+        repo.save(role);
+        return "Rol actualizado correctamente";
+    }
+
+    @Override
     public List<Role> findByRole(String role){
         return repo.filterByRole(role);
     }

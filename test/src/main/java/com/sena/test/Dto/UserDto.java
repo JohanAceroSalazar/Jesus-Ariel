@@ -2,25 +2,25 @@ package com.sena.test.Dto;
 
 public class UserDto {
 
-    private int id;
+    private Integer id;
     private String user_name;
     private String email;
     private String password;
 
     public UserDto() {}
 
-    public UserDto(int id, String user_name, String email, String password) {
+    public UserDto(Integer id, String user_name, String email, String password) {
         this.id = id;
         this.user_name = user_name;
         this.email = email;
         this.password = password;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,6 +47,4 @@ public class UserDto {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    
 }

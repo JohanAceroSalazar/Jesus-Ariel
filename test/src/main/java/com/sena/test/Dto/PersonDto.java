@@ -2,23 +2,23 @@ package com.sena.test.Dto;
 
 public class PersonDto {
 
-    private int id;
+    private Integer id;
     private String name;
-    private int edad;
+    private Integer edad;
 
     public PersonDto(){}
 
-    public PersonDto(int id, String name, int edad) {
+    public PersonDto(Integer id, String name, Integer edad) {
         this.id = id;
         this.name = name;
         this.edad = edad;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -30,11 +30,11 @@ public class PersonDto {
         this.name = name;
     }
 
-    public int getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 }

@@ -1,6 +1,7 @@
 package com.sena.test.Controller;
 
 import java.util.List;
+import com.sena.test.Dto.UserDto;
 import com.sena.test.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,9 @@ import com.sena.test.Service.IUserService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/users")
@@ -25,6 +29,14 @@ public class UserController {
             service.findAll(),HttpStatus.OK);
     }
 
+    @PostMapping("")
+    public ResponseEntity<Object> save(
+        @RequestBody UserDto u){
+            service.save(u);
+            return new ResponseEntity<Object>
+                ("Se guardo exitosamente",HttpStatus.OK);
+        }
+
     @GetMapping("{id}")
     public ResponseEntity<Object> findById(
     @PathVariable int id){
@@ -32,6 +44,16 @@ public class UserController {
         return new ResponseEntity<Object>
         (user,HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(
+        @PathVariable int id,
+        @RequestBody UserDto userDto){
+
+        return new ResponseEntity<>(
+            service.update(id, userDto),
+            HttpStatus.OK);
+        }
 
     @GetMapping("filterbyname/{name}")
     public ResponseEntity<Object>filterByName(

@@ -2,21 +2,21 @@ package com.sena.test.Dto;
 
 public class RoleDto {
 
-    private int id;
+    private Integer id;
     private String role; 
 
     public RoleDto() {}
 
-    public RoleDto(int id, String role) {
+    public RoleDto(Integer id, String role) {
         this.id = id;
         this.role = role;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

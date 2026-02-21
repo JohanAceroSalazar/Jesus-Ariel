@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sena.test.Dto.RoleDto;
 import com.sena.test.Entity.Role;
 import com.sena.test.Service.IRoleService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
+
 
 @RestController
 @RequestMapping("/role")
@@ -25,12 +32,30 @@ public class RoleController {
             service.findAll(),HttpStatus.OK);
     }
 
+    @PostMapping("")
+    public ResponseEntity<Object> save(
+        @RequestBody RoleDto r){
+            service.save(r);
+            return new ResponseEntity<Object>
+            ("Se guardo exitosamente",HttpStatus.OK);
+        }
+
     @GetMapping("{id}")
     public ResponseEntity<Object> findById(
         @PathVariable int id){
             Role role = service.findById(id);
             return new ResponseEntity<Object>
             (role,HttpStatus.OK);
+        }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(
+        @PathVariable int id,
+        @RequestBody RoleDto roleDto){
+
+        return new ResponseEntity<>(
+            service.update(id, roleDto),
+            HttpStatus.OK);
         }
 
     @GetMapping("findByRole/{role}")

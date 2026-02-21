@@ -9,6 +9,7 @@ public interface IRoleService {
 
     public List<Role> findAll();
     public Role findById(int id_role);
+    String update (int id, RoleDto roleDto);
     public List<Role> findByRole(String role);
     public String save(RoleDto r);
     public String delete(int id);

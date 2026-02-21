@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.sena.test.Dto.PersonDto;
 import com.sena.test.Entity.Person;
 import com.sena.test.Service.IPersonService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/person")
@@ -26,6 +30,14 @@ public class PersonController {
         (service.findAll(),HttpStatus.OK);
     }
 
+    @PostMapping("")
+    public ResponseEntity<Object> save(
+        @RequestBody PersonDto p){
+            service.save(p);
+            return new ResponseEntity<Object>
+            ("Se guardo exitosamente",HttpStatus.OK);
+        }
+
     @GetMapping("{id}")
     public ResponseEntity<Object> findById(
         @PathVariable int id){
@@ -33,6 +45,16 @@ public class PersonController {
             return new ResponseEntity<Object>
             (person,HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(
+        @PathVariable int id,
+        @RequestBody PersonDto personDto){
+
+        return new ResponseEntity<>(
+            service.update(id, personDto),
+            HttpStatus.OK);
+        }
 
     @GetMapping("filterByAge/{edad}")
     public ResponseEntity<Object> filterByEdad(

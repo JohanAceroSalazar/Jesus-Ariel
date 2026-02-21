@@ -8,6 +8,7 @@ public interface IUserService {
 
     public List<User> findAll();
     public User findById(int id);
+    String update(int id, UserDto userDto);
     public List<User> filterByName(String user_name);
     public String save(UserDto u);
     public String delete(int id);

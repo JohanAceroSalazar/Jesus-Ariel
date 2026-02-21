@@ -16,12 +16,39 @@ public class UserServiceImple implements IUserService {
 
     @Override
     public List<User> findAll() {
-        return repository.findAll();
+
+    //Va a la DB y trae todos los usuarios
+    List<User> user = repository.findAll();
+
+    //Recorre cada usuario uno por uno
+    return user.stream()
+        .map(this::entityToDto) //quita el password en entityToDto 
+        .toList(); //convierte todo en una lista
     }
 
     @Override 
     public User findById(int id){
         return repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public String update(int id, UserDto userDto){
+        User user = repository.findById(id).orElse(null);
+
+        if(user == null){
+            return "Usuario no encontrado";
+    }
+
+    user.setUser_name(userDto.getUser_name());
+    user.setEmail(userDto.getEmail());
+
+    //Sirve para cuando no queremos actualizar la contraseña
+    if(userDto.getPassword() != null && !userDto.getPassword().isEmpty()){ //valida el espacio no este vacio
+    user.setPassword(userDto.getPassword());
+    }
+
+    repository.save(user);
+    return "Usuario actualizado correctamente";
     }
 
     @Override
@@ -43,7 +70,7 @@ public class UserServiceImple implements IUserService {
             user.getId(),
             user.getUser_name(),
             user.getEmail(),
-            user.getPassword()
+            ""
         );
     }
 

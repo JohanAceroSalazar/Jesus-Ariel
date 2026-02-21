@@ -4,7 +4,6 @@ package com.sena.test.Service.Imple;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sena.test.Dto.PersonDto;
 import com.sena.test.Entity.Person;
 import com.sena.test.IRepository.PersonRepository;
@@ -30,6 +29,21 @@ public class PersonServiceImple implements IPersonService {
     public List<Person> filterByEdad(int edad){
         return repo.filterByEdad(edad);
     }
+
+    @Override
+    public String update(int id, PersonDto personDto){
+        Person person = repo.findById(id).orElse(null);
+
+        if (person == null){
+            return "usuario no encontrado";
+        }
+
+        person.setEdad(personDto.getEdad());
+        person.setName(personDto.getName());
+
+        repo.save(person);
+        return "Usuario actualizado correctamente";
+        }
 
     public Person dtoToEntity(PersonDto personDto){
         return new Person(
