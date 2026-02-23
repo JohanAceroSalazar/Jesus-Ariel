@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sena.test.Dto.PersonDto;
 import com.sena.test.Entity.Person;
-import com.sena.test.Service.IPersonService;
+import com.sena.test.IService.IPersonService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;

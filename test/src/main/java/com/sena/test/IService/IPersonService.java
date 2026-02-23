@@ -1,4 +1,4 @@
-package com.sena.test.Service;
+package com.sena.test.IService;
 
 import java.util.List;
 

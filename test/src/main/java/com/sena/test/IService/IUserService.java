@@ -1,4 +1,5 @@
-package com.sena.test.Service;
+//Interfaz donde definimos los metodos que vamos a utilizar en la implement
+package com.sena.test.IService;
 
 import java.util.List;
 import com.sena.test.Dto.UserDto;

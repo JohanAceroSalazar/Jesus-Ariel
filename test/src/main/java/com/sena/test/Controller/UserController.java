@@ -1,3 +1,4 @@
+//Es el que recibe la petición del cliente (HTTP)
 package com.sena.test.Controller;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sena.test.Service.IUserService;
+import com.sena.test.IService.IUserService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

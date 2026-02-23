@@ -1,5 +1,4 @@
-//Contiene la lógica de negocio
-package com.sena.test.Service.Imple;
+package com.sena.test.IService.Imple;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.sena.test.Dto.PersonDto;
 import com.sena.test.Entity.Person;
 import com.sena.test.IRepository.PersonRepository;
-import com.sena.test.Service.IPersonService;
+import com.sena.test.IService.IPersonService;
 
 @Service
 public class PersonServiceImple implements IPersonService {

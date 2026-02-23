@@ -1,4 +1,4 @@
-package com.sena.test.Service.Imple;
+package com.sena.test.IService.Imple;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.sena.test.Dto.RoleDto;
 import com.sena.test.Entity.Role;
 import com.sena.test.IRepository.RoleRepository;
-import com.sena.test.Service.IRoleService;
+import com.sena.test.IService.IRoleService;
 
 @Service
 public class RoleServiceImple implements IRoleService {

@@ -1,4 +1,5 @@
-package com.sena.test.Service.Imple;
+//La implementación de la interfaz, Logica del negocio: validaciones y lo que decide que hacer
+package com.sena.test.IService.Imple;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.sena.test.Dto.UserDto;
 import com.sena.test.Entity.User;
 import com.sena.test.IRepository.UserRepository;
-import com.sena.test.Service.IUserService;
+import com.sena.test.IService.IUserService;
 
 @Service
 public class UserServiceImple implements IUserService {

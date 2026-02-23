@@ -1,3 +1,5 @@
+//Sirve para controlar qué datos salen o entran
+//Porque no siempre quieremos mostrar todo lo que tiene la Entity
 package com.sena.test.Dto;
 
 public class UserDto {
